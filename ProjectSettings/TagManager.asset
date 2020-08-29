@@ -9,6 +9,7 @@ TagManager:
   - Spikes
   - Change
   - SpikeTrap
+  - SpikesDamage
   layers:
   - Default
   - TransparentFX

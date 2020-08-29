@@ -45,5 +45,9 @@ public class PlayerStats : MonoBehaviour
         {
             Die();
         }
+        if(other.tag == "SpikesDamage")
+        {
+            Die();
+        }
     }
 }
