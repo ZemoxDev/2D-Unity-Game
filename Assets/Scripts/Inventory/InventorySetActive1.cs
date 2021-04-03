@@ -6,6 +6,8 @@ public class InventorySetActive1 : MonoBehaviour
 {
     public GameObject inventory;
     public GameObject equipment;
+    public GameObject statSection;
+    public GameObject tooltip;
 
     public bool isPaused;
 
@@ -13,6 +15,8 @@ public class InventorySetActive1 : MonoBehaviour
     {
         inventory.SetActive(false);
         equipment.SetActive(false);
+        statSection.SetActive(false);
+        tooltip.SetActive(false);
     }
 
     void Update()
@@ -33,6 +37,8 @@ public class InventorySetActive1 : MonoBehaviour
     {
         inventory.SetActive(false);
         equipment.SetActive(false);
+        statSection.SetActive(false);
+        tooltip.SetActive(false);
         isPaused = true;
     }
 
@@ -40,6 +46,8 @@ public class InventorySetActive1 : MonoBehaviour
     {
        inventory.SetActive(true);
         equipment.SetActive(true);
+        statSection.SetActive(true);
+        tooltip.SetActive(true);
         isPaused = false;
     }
 }

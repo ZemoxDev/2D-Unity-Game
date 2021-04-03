@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d022eed25439b542b5756fda54e667c, type: 3}
+  m_Name: Golden Leggins
+  m_EditorClassIdentifier: 
+  id: 7f64c7ed01de21944a09bb4a04e6cd7b
+  ItemName: Golden Leggins
+  maximumStack: 1
+  Icon: {fileID: 21300000, guid: 3384ec0d92e6dde4b921ed5c186ec4c2, type: 3}
+  StrengthBonus: 0
+  AgilityBonus: 0
+  IntelligenceBonus: 0
+  VitalityBonus: 12
+  StrengthPercentBonus: 0
+  AgilityPercentBonus: 0
+  IntelligencePercentBonus: 0
+  VitalityPercentBonus: 0
+  EquipmentType: 2

@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Underworld 1st Level.unity
     guid: c883f4a368b57ff4683cfcab1fa3a493
+  - enabled: 1
+    path: Assets/Scenes/Aboveground 1st Level.unity
+    guid: 9129b6c6ba1edfd40bf073c8bbec6655
+  - enabled: 1
+    path: Assets/Scenes/NPC Transition Level 1.unity
+    guid: ba1fcaa895537644c87c54de416d5e53
+  - enabled: 1
+    path: Assets/Scenes/2nd Level.unity
+    guid: bcff8ae967957544fbd7675836abd163
   m_configObjects: {}

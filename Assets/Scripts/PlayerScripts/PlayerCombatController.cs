@@ -6,8 +6,8 @@ public class PlayerCombatController : MonoBehaviour
 {
     [SerializeField]
     private bool combatEnabled;
-    [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage;
+
+    public float inputTimer, attack1Radius, attack1Damage;
     [SerializeField]
     private float stunDamageAmount = 1f;
     [SerializeField]
@@ -49,6 +49,10 @@ public class PlayerCombatController : MonoBehaviour
             {
                 gotInput = true;
                 lastInputTime = Time.time;
+            }
+            if (PC.isDashing)
+            {
+                PC.DashJump();
             }
         }
     }

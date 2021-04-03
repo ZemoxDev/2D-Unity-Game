@@ -17,10 +17,10 @@ public enum EquipmentType
 [CreateAssetMenu]
 public class EquippableItem : Item
 {
-    public int StrengthBonus;
-    public int AgilityBonus;
-    public int IntelligenceBonus;
-    public int VitalityBonus;
+    public float StrengthBonus;
+    public float AgilityBonus;
+    public float IntelligenceBonus;
+    public float VitalityBonus;
     [Space]
     public float StrengthPercentBonus;
     public float AgilityPercentBonus;
@@ -28,4 +28,31 @@ public class EquippableItem : Item
     public float VitalityPercentBonus;
     [Space]
     public EquipmentType EquipmentType;
+
+    public override Item GetCopy()
+    {
+        return Instantiate(this);
+    }
+
+    public override void Destroy()
+    {
+        Destroy(this);
+    }
+
+    public void Equip(InventoryManager manager)
+    {
+        manager.combatController.attack1Damage += StrengthBonus;
+        manager.stats.maxHealth += VitalityBonus;
+        manager.controller.movementSpeed += AgilityBonus;
+        manager.controller.dashSpeed += IntelligenceBonus;
+    }
+
+    public void Unequip(InventoryManager manager)
+    {
+        manager.combatController.attack1Damage -= StrengthBonus;
+        manager.stats.maxHealth -= VitalityBonus;
+        manager.controller.movementSpeed -= AgilityBonus;
+        manager.controller.dashSpeed -= IntelligenceBonus;
+    }
 }
+

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField]
-    private float maxHealth;
+    public float maxHealth;
 
     [SerializeField]
     public Animator anim;
@@ -32,20 +31,16 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
         GM.Respawn();
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Spikes")
-        {
-            Die();
-        }
-        if(other.tag == "SpikesDamage")
+        if(other.gameObject.tag == "Spikes")
         {
             Die();
         }

@@ -9,7 +9,7 @@ TagManager:
   - Spikes
   - Change
   - SpikeTrap
-  - SpikesDamage
+  - Elevator
   layers:
   - Default
   - TransparentFX
@@ -23,7 +23,7 @@ TagManager:
   - Damageable
   - Dead
   - Player
-  - 
+  - PostProcessing
   - 
   - 
   - 

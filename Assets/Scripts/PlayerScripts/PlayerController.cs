@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float knockbackDuration;
 
     private int amountOfJumpsLeft;
-    private int facingDirection = 1;
+    public int facingDirection = 1;
     private int lastWallJumpDirection;
 
     private bool isFacingRight = true;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
     private bool canFlip;
     private bool hasWallJumped;
-    private bool isDashing;
+    public bool isDashing;
     private bool knockback;
 
     private Rigidbody2D rb;
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public Transform wallCheck;
 
     public LayerMask whatIsGround;
+    public LayerMask whatIsLadder;
 
     void Start()
     {
@@ -383,10 +384,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DashJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 20);
+        isAttemptingToJump = false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Elevator"))
+        {
+            transform.parent = other.gameObject.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Elevator"))
+        {
+            transform.parent = null;
+        }
     }
 }

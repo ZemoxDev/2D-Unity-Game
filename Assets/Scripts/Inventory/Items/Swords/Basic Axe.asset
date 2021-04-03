@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d022eed25439b542b5756fda54e667c, type: 3}
+  m_Name: Basic Axe
+  m_EditorClassIdentifier: 
+  id: 11ca335e71706684f91c2b8c975414a8
+  ItemName: Basic Axe
+  maximumStack: 1
+  Icon: {fileID: 21300000, guid: e4ae24bae7283074e82dc6219f0d7534, type: 3}
+  StrengthBonus: 5
+  AgilityBonus: 0
+  IntelligenceBonus: -2
+  VitalityBonus: 0
+  StrengthPercentBonus: 0
+  AgilityPercentBonus: 0
+  IntelligencePercentBonus: 0
+  VitalityPercentBonus: 0
+  EquipmentType: 4

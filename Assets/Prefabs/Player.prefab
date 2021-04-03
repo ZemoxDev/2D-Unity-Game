@@ -85,6 +85,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,8 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackDuration: 0.2
+  facingDirection: 1
+  isDashing: 0
   amountOfJumps: 1
-  movementSpeed: 9
+  movementSpeed: 10
   jumpForce: 17
   groundCheckRadius: 0.35
   wallCheckDistance: 0.6
@@ -146,10 +149,11 @@ MonoBehaviour:
   jumpTimerSet: 0.15
   turnTimerSet: 0.1
   wallJumpTimerSet: 0.5
-  dashTime: 0.15
-  dashSpeed: 50
+  dashTime: 0.32
+  dashSpeed: 40
   distanceBetweenImages: 0.15
-  dashCooldown: 2.5
+  dashCooldown: 3
+  distance: 0
   knockbackSpeed: {x: 10, y: 5}
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
@@ -158,6 +162,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!50 &4752256375203136266
 Rigidbody2D:
   serializedVersion: 4
@@ -237,9 +244,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatEnabled: 1
-  inputTimer: 0.2
+  inputTimer: 0.3
   attack1Radius: 0.85
   attack1Damage: 10
+  stunDamageAmount: 1
   attack1HitBoxPos: {fileID: 4752256375058342588}
   whatIsDamageable:
     serializedVersion: 2
@@ -257,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  anim: {fileID: 0}
   deathBloodParticle: {fileID: 6261597489451112121, guid: b1227a658c1799a45927aad8a88360e3,
     type: 3}
 --- !u!1 &4752256376405561959

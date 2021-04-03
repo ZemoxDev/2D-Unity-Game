@@ -1,47 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler
+public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
-    [SerializeField] Image image;
-    private Item _item;
+    public event Action<BaseItemSlot> OnBeginDragEvent;
+    public event Action<BaseItemSlot> OnEndDragEvent;
+    public event Action<BaseItemSlot> OnDragEvent;
+    public event Action<BaseItemSlot> OnDropEvent;
 
-    public event Action<Item> OnRightClickEvent;
+    private bool isDragging;
+    private Color dragColor = new Color(1, 1, 1, 0.5f);
 
-    public Item Item
-    {
-        get { return _item; }
-        set
-        {
-            _item = value;
-            if (_item == null)
-            {
-                image.enabled = false;
-            }
-            else
-            {
-                image.sprite = _item.Icon;
-                image.enabled = true;
-            }
-        }
-    }
+	public override bool CanAddStack(Item item, int amount = 1)
+	{
+		return base.CanAddStack(item, amount) && Amount + amount <= item.maximumStack;
+	}
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(eventData != null && eventData.button == PointerEventData.InputButton.Right)
-        {
-            if (Item != null && OnRightClickEvent != null)
-                OnRightClickEvent(Item);
-        }
-    }
+	public override bool CanReceiveItem(Item item)
+	{
+		return true;
+	}
 
-    protected virtual void OnValidate()
-    {
-        if (image == null)
-            image = GetComponent<Image>();
-    }
+	public void OnDisable()
+	{
+		base.OnDisable();
+
+		if (isDragging)
+		{
+			OnEndDrag(null);
+		}
+	}
+
+	public void OnBeginDrag(PointerEventData eventData)
+	{
+		isDragging = true;
+
+		if (Item != null)
+			image.color = dragColor;
+
+		if (OnBeginDragEvent != null)
+			OnBeginDragEvent(this);
+	}
+
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		isDragging = false;
+
+		if (Item != null)
+			image.color = normalColor;
+
+		if (OnEndDragEvent != null)
+			OnEndDragEvent(this);
+	}
+
+	public void OnDrag(PointerEventData eventData)
+	{
+		if (OnDragEvent != null)
+			OnDragEvent(this);
+	}
+
+	public void OnDrop(PointerEventData eventData)
+	{
+		if (OnDropEvent != null)
+			OnDropEvent(this);
+	}
 }

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98a986b89434df4ea9bb06365a95066, type: 3}
+  m_Name: DE2_Base
+  m_EditorClassIdentifier: 
+  maxHealth: 105
+  damageHopSpeed: 6
+  wallCheckDistance: 0.6
+  ledgeCheckDistance: 0.8
+  groundCheckRadius: 0.3
+  maxAgroDistance: 8
+  minAgroDistance: 7
+  stunResistance: 3
+  stunRecoveryTime: 2
+  shortRangeActionDistance: 0.95
+  hitParticle: {fileID: 7995396346791523787, guid: b2d418ce5a6ad5f4699f38be60329a92,
+    type: 3}
+  attackBloodParticle: {fileID: 6261597489451112121, guid: 827bbab169bc4ae4ba84af117138df54,
+    type: 3}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 2048

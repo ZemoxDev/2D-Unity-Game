@@ -1,68 +1,33 @@
-﻿using System.Collections;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : ItemContainer
 {
-    [SerializeField] List<Item> items;
-    [SerializeField] Transform itemsParent;
-    [SerializeField] ItemSlot[] itemSlots;
+    [SerializeField] protected Item[] startingItems;
+    [SerializeField] protected Transform itemsParent;
 
-    public event Action<Item> OnItemRightClickedEvent;
-
-    private void Start()
-    {
-        for(int i = 0; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].OnRightClickEvent += OnItemRightClickedEvent;
-        }  
-    }
-
-    private void OnValidate()
+    public void OnValidate()
     {
         if (itemsParent != null)
-            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+            itemsParent.GetComponentsInChildren(includeInactive: true, result: itemSlots);
 
-        RefreshUI();
-    }
-
-    private void RefreshUI()
-    {
-        int i = 0;
-        for (; i < items.Count && i < itemSlots.Length; i++)
+        if (!Application.isPlaying)
         {
-            itemSlots[i].Item = items[i];
+            SetStartingItems();
         }
+    }
 
-        for(; i < itemSlots.Length; i++)
+    protected override void Awake()
+    {
+        base.Awake();
+        SetStartingItems();
+    }
+
+    private void SetStartingItems()
+    {
+        Clear();
+        foreach (Item item in startingItems)
         {
-            itemSlots[i].Item = null;
+            AddItem(item.GetCopy());
         }
-        
-    }
-
-    public bool AddItem(Item item)
-    {
-        if (IsFull())
-            return false;
-        items.Add(item);
-        RefreshUI();
-        return true;
-    }
-
-    public bool RemoveItem(Item item)
-    {
-        if (items.Remove(item))
-        {
-            RefreshUI();
-            return true;
-        }
-        return false;
-    }
-
-    public bool IsFull()
-    {
-        return items.Count >= itemSlots.Length;
     }
 }

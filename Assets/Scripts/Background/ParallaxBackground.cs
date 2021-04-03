@@ -19,7 +19,7 @@ public class ParallaxBackground : MonoBehaviour
     void FixedUpdate()
     {
         float temp = (cam.transform.position.x * (1 - parallexEffect));
-        float dist = (cam.transform.position.x * parallexEffect);
+        float dist = (cam.transform.position.x * parallexEffect + 5);
 
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
 
