@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour
 
     private float respawnTimeStart;
 
-    private bool respawn;
+    public bool respawn;
 
     private CinemachineVirtualCamera CVC;
+
+    private PlayerStats PS;
+    private PlayerCombatController PCC;
+    private PlayerController PC;
 
     private void Start()
     {
@@ -40,6 +44,22 @@ public class GameManager : MonoBehaviour
             var playerTemp = Instantiate(player, respawnPoint);
             respawn = false;
             CVC.m_Follow = playerTemp.transform;
+            CVC.m_LookAt = playerTemp.transform;
+
+            NewStats();
         }
+    }
+
+    private void NewStats()
+    {
+        PS = GetComponentInChildren<PlayerStats>();
+        PCC = GetComponentInChildren<PlayerCombatController>();
+        PC = GetComponentInChildren<PlayerController>();
+
+        PS.maxHealth = PlayerPrefs.GetFloat("health");
+        PS.currentHealth = PlayerPrefs.GetFloat("health");
+        PCC.attack1Damage = PlayerPrefs.GetFloat("damage");
+        PC.movementSpeed = PlayerPrefs.GetFloat("speed");
+        PC.dashSpeed = PlayerPrefs.GetFloat("intelligence");
     }
 }

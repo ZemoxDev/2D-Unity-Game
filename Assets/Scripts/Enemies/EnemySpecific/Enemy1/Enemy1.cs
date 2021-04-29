@@ -67,16 +67,24 @@ public class Enemy1 : Entity
             stateMachine.ChangeState(deadState);
             Destroy(gameObject);
         }
-
         else if (isStunned && stateMachine.currentState != stunState)
         {
             stateMachine.ChangeState(stunState);
         }
-
+        else if (CheckPlayerInMinAgroRange())
+        {
+            stateMachine.ChangeState(meleeAttackState);
+        }
         else if (!CheckPlayerInMinAgroRange())
         {
-            lookForPlayerState.SetTurnImmediately(true);
-            stateMachine.ChangeState(lookForPlayerState);
+            StartCoroutine(TurnAttack());
         }
+    }
+
+    IEnumerator TurnAttack()
+    {
+        lookForPlayerState.SetTurnImmediately(true);
+        yield return new WaitForSeconds(0.05f);
+        stateMachine.ChangeState(meleeAttackState);
     }
 }

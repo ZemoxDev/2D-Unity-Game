@@ -13,7 +13,7 @@ public class InventorySetActive1 : MonoBehaviour
 
     void Start()
     {
-        inventory.SetActive(false);
+        StartCoroutine(InventoryStart());
         equipment.SetActive(false);
         statSection.SetActive(false);
         tooltip.SetActive(false);
@@ -45,9 +45,18 @@ public class InventorySetActive1 : MonoBehaviour
     public void Activate()
     {
        inventory.SetActive(true);
-        equipment.SetActive(true);
-        statSection.SetActive(true);
-        tooltip.SetActive(true);
-        isPaused = false;
+       equipment.SetActive(true);
+       statSection.SetActive(true);
+       tooltip.SetActive(true);
+       isPaused = false;
+    }
+
+    IEnumerator InventoryStart()
+    {
+        inventory.SetActive(true);
+
+        yield return new WaitForSeconds(0.05f);
+
+        inventory.SetActive(false);
     }
 }

@@ -21,6 +21,9 @@ public class ItemChest : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.SetBool("chestOpen", false);
         gold.Stop();
+
+        inventory = GameObject.Find("/Canvas/Character Panel/Inventory").GetComponent<Inventory>();
+        ButtonPressText = GameObject.Find("/Canvas/ButtonPressText");
     }
 
     private void Update()
@@ -35,6 +38,7 @@ public class ItemChest : MonoBehaviour
                 if (amount == 0)
                 {
                     isEmpty = true;
+                    ButtonPressText.SetActive(false);
                     gold.Play();
                 }
                 anim.SetBool("chestOpen", true);

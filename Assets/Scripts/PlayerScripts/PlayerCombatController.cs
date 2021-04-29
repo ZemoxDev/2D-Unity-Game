@@ -23,22 +23,23 @@ public class PlayerCombatController : MonoBehaviour
 
     private Animator anim;
 
-    private PlayerController PC;
-    private PlayerStats PS;
+    public PlayerController PC;
+    public PlayerStats PS;
 
 
-    private void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
-        PC = GetComponent<PlayerController>();
-        PS = GetComponent<PlayerStats>();
     }
 
-    private void Update()
+    void Update()
     {
         CheckCombatInput();
         CheckAttacks();
+
+        if(isAttacking == true)
+            PC.camShake.Shake(0.05f, 0.1f);
     }
 
     private void CheckCombatInput()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Golden Emerald Ring
   m_EditorClassIdentifier: 
   id: 5f9724726028b0c42b43888cd661d275
-  ItemName: Golden Ring
+  ItemName: Golden Emerald Ring
   maximumStack: 1
   Icon: {fileID: 21300000, guid: 933218ade853d264580b0dd3bb03017f, type: 3}
   StrengthBonus: 0.5

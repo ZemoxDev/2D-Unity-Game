@@ -10,7 +10,7 @@ public class SpikeTrapDamage : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            stats.Die();
+
         }
     }
 }

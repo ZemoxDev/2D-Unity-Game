@@ -20,4 +20,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2nd Level.unity
     guid: bcff8ae967957544fbd7675836abd163
+  - enabled: 1
+    path: Assets/Scenes/NPC Transition Level 2.unity
+    guid: e52ee7e73e81c9a4791bee94e35d752c
+  - enabled: 1
+    path: Assets/Scenes/BossLevel 1.unity
+    guid: e6962a61624e3294f80f0275178623d3
+  - enabled: 1
+    path: Assets/Scenes/CityOfLight.unity
+    guid: 589ad3ded2f62b64b8a3b6a64b85602e
+  - enabled: 1
+    path: Assets/Scenes/EasyGrassland.unity
+    guid: e0e5b4c0b748caf428504ffdb8b71db9
+  - enabled: 1
+    path: Assets/Scenes/MediumGrassland.unity
+    guid: 34214cedc5e78f74b8f07b3103048ec6
+  - enabled: 1
+    path: Assets/Scenes/HardGrassland.unity
+    guid: 200e076c5b799ff4c81b960fccb6dfb3
   m_configObjects: {}

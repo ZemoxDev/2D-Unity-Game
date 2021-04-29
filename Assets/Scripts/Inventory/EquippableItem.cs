@@ -43,6 +43,7 @@ public class EquippableItem : Item
     {
         manager.combatController.attack1Damage += StrengthBonus;
         manager.stats.maxHealth += VitalityBonus;
+        manager.stats.currentHealth = manager.stats.maxHealth;
         manager.controller.movementSpeed += AgilityBonus;
         manager.controller.dashSpeed += IntelligenceBonus;
     }
@@ -51,6 +52,7 @@ public class EquippableItem : Item
     {
         manager.combatController.attack1Damage -= StrengthBonus;
         manager.stats.maxHealth -= VitalityBonus;
+        manager.stats.currentHealth = manager.stats.maxHealth;
         manager.controller.movementSpeed -= AgilityBonus;
         manager.controller.dashSpeed -= IntelligenceBonus;
     }

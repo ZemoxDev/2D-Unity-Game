@@ -11,6 +11,7 @@ public class BossBattleStart : MonoBehaviour
 
     public GameObject chest;
     public GameObject crackedDirt;
+    public GameObject crackedAnim;
 
     private void LateUpdate()
     {
@@ -18,6 +19,7 @@ public class BossBattleStart : MonoBehaviour
         {
             chest.SetActive(true);
             crackedDirt.SetActive(false);
+            crackedAnim.SetActive(true);
         }
     }
 

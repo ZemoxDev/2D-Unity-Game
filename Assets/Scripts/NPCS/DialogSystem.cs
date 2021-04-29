@@ -13,7 +13,7 @@ public class DialogSystem : MonoBehaviour
     public GameObject continueButton;
     public GameObject textBackground;
 
-    private void Start()
+    private void Awake()
     {
         StartCoroutine(Type());
         textBackground.SetActive(true);

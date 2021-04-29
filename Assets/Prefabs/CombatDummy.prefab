@@ -48,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -170,6 +171,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -321,10 +323,12 @@ MonoBehaviour:
   knockbackSpeedX: 8
   knockbackSpeedY: 4
   knockbackDuration: 0.1
-  knockBackDeathSpeedX: 15
-  knockBackDeathSpeedY: 7
+  knockbackDeathSpeedX: 0
+  knockbackDeathSpeedY: 0
   deathTorque: 1
   applyKnockback: 1
+  hitParticle: {fileID: 7995396346791523787, guid: b2d418ce5a6ad5f4699f38be60329a92,
+    type: 3}
 --- !u!1 &2439012816189908571
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +377,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

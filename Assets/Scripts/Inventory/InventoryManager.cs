@@ -25,6 +25,8 @@ public class InventoryManager : MonoBehaviour
 
     private BaseItemSlot draggedSlot;
 
+    private GameObject player;
+
     private void OnValidate()
     {
         if (itemTooltip == null)
@@ -66,6 +68,31 @@ public class InventoryManager : MonoBehaviour
         {
             itemSaveManager.LoadEquipment(this);
             itemSaveManager.LoadInventory(this);
+        }
+    }
+
+    private float nextActionTime = 0.0f;
+    private float period = 2f;
+    private GameObject gameManagerRespawn;
+
+    void Update()
+    {
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
+            itemSaveManager.SaveEquipment(this);
+            itemSaveManager.SaveInventory(this);
+            Debug.Log("Inventory Saved");
+        }
+
+        gameManagerRespawn = GameObject.Find("/GameManager/RespawnPoint");
+        if (gameManagerRespawn.transform.childCount > 0)
+        {
+            player = GameObject.Find("/GameManager/RespawnPoint/Player(Clone)");
+
+            combatController = player.GetComponent<PlayerCombatController>();
+            controller = player.GetComponent<PlayerController>();
+            stats = player.GetComponent<PlayerStats>();
         }
     }
 
@@ -199,7 +226,7 @@ public class InventoryManager : MonoBehaviour
         if (inventory.RemoveItem(item))
         {
             EquippableItem previousItem;
-            if(equipmentPanel.AddItem(item, out previousItem))
+            if (equipmentPanel.AddItem(item, out previousItem))
             {
                 if (previousItem != null)
                 {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99c6566ef4e8064d9e41004f95d8b92, type: 3}
   m_Name: DE2_AttackData
   m_EditorClassIdentifier: 
-  attackRadius: 1.2
+  attackRadius: 1.5
   attackDamage: 17
   whatIsPlayer:
     serializedVersion: 2

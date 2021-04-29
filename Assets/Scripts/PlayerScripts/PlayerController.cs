@@ -66,15 +66,22 @@ public class PlayerController : MonoBehaviour
     public Transform wallCheck;
 
     public LayerMask whatIsGround;
-    public LayerMask whatIsLadder;
 
-    void Start()
+    public CameraShake camShake;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
+
+        camShake = FindObjectOfType<CameraShake>();
+        if (camShake == null)
+            Debug.LogError("There is no CamShake in this Scene");
+
+        dashTimeUp = dashTime;
     }
 
 
@@ -87,6 +94,7 @@ public class PlayerController : MonoBehaviour
         CheckIfWallSliding();
         CheckJump();
         CheckDash();
+        CheckDashUp();
         CheckKnockback();
     }
 
@@ -231,6 +239,14 @@ public class PlayerController : MonoBehaviour
                 AttemptToDash();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            if (Time.time >= (lastDashUp + dashCooldown))
+            {
+                AttemptToDashUp();
+            }
+        }
     }
 
     private void AttemptToDash()
@@ -238,6 +254,21 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         dashTimeLeft = dashTime;
         lastDash = Time.time;
+
+        PlayerAfterImagePool.Instance.GetFromPool();
+        lastImageXpos = transform.position.x;
+    }
+
+    private bool dashUp;
+    private float dashTimeLeftUp;
+    private float lastDashUp = -100;
+    private float dashTimeUp;
+
+    private void AttemptToDashUp()
+    {
+        dashUp = true;
+        dashTimeLeftUp = dashTimeUp;
+        lastDashUp = Time.time;
 
         PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXpos = transform.position.x;
@@ -269,6 +300,33 @@ public class PlayerController : MonoBehaviour
             if(dashTimeLeft <= 0 || isTouchingWall)
             {
                 isDashing = false;
+                canMove = true;
+                canFlip = true;
+            }
+        }
+    }
+
+    private void CheckDashUp()
+    {
+        if (dashUp)
+        {
+            if (dashTimeLeftUp > 0)
+            {
+                canMove = false;
+                canFlip = false;
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                dashTimeLeftUp -= Time.deltaTime;
+
+                if (Mathf.Abs(transform.position.y - lastImageXpos) > distanceBetweenImages)
+                {
+                    PlayerAfterImagePool.Instance.GetFromPool();
+                    lastImageXpos = transform.position.x;
+                }
+            }
+
+            if (dashTimeLeftUp <= 0 || isTouchingWall)
+            {
+                dashUp = false;
                 canMove = true;
                 canFlip = true;
             }

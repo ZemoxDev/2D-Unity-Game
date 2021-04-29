@@ -153,7 +153,6 @@ MonoBehaviour:
   dashSpeed: 40
   distanceBetweenImages: 0.15
   dashCooldown: 3
-  distance: 0
   knockbackSpeed: {x: 10, y: 5}
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
@@ -162,9 +161,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  whatIsLadder:
-    serializedVersion: 2
-    m_Bits: 8192
+  camShake: {fileID: 0}
 --- !u!50 &4752256375203136266
 Rigidbody2D:
   serializedVersion: 4
@@ -252,6 +249,8 @@ MonoBehaviour:
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 512
+  PC: {fileID: 4752256375203136271}
+  PS: {fileID: 4752256375203136268}
 --- !u!114 &4752256375203136268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,9 +264,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  currentHealth: 50
   anim: {fileID: 0}
   deathBloodParticle: {fileID: 6261597489451112121, guid: b1227a658c1799a45927aad8a88360e3,
     type: 3}
+  PCC: {fileID: 4752256375203136269}
+  PC: {fileID: 4752256375203136271}
 --- !u!1 &4752256376405561959
 GameObject:
   m_ObjectHideFlags: 0

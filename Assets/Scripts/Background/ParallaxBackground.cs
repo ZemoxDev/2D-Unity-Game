@@ -5,9 +5,8 @@ using UnityEngine;
 public class ParallaxBackground : MonoBehaviour
 {
     private float length, startpos;
-    public float parallexEffect;
-
     public GameObject cam;
+    public float parallexEffect;
     
 
     void Start()
@@ -19,8 +18,7 @@ public class ParallaxBackground : MonoBehaviour
     void FixedUpdate()
     {
         float temp = (cam.transform.position.x * (1 - parallexEffect));
-        float dist = (cam.transform.position.x * parallexEffect + 5);
-
+        float dist = (cam.transform.position.x * parallexEffect);
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
 
         if (temp > startpos + length) startpos += length;

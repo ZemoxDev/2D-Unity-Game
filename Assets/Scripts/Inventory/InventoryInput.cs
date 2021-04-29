@@ -5,11 +5,12 @@ using UnityEngine;
 public class InventoryInput : MonoBehaviour
 {
     [SerializeField] GameObject inventoryGameObject;
+    [SerializeField] GameObject buttonPressText;
     [SerializeField] KeyCode[] toggleInventoryKeys;
 
     void Awake()
     {
-        inventoryGameObject.SetActive(false);
+        StartCoroutine(InventoryStart());
         HideMouseCursor();
     }
 
@@ -44,5 +45,16 @@ public class InventoryInput : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    IEnumerator InventoryStart()
+    {
+        inventoryGameObject.SetActive(true);
+        buttonPressText.SetActive(true);
+
+        yield return new WaitForSeconds(0.005f);
+
+        buttonPressText.SetActive(false);
+        inventoryGameObject.SetActive(false);
     }
 }
