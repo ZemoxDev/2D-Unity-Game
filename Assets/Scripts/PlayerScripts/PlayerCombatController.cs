@@ -44,7 +44,7 @@ public class PlayerCombatController : MonoBehaviour
 
     private void CheckCombatInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Cursor.lockState == CursorLockMode.Locked)
         {
             if (combatEnabled)
             {
@@ -70,6 +70,8 @@ public class PlayerCombatController : MonoBehaviour
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack);
                 anim.SetBool("isAttacking", isAttacking);
+
+                FindObjectOfType<AudioManager>().Play("SwordSound1");
             }
         }
 
@@ -90,6 +92,8 @@ public class PlayerCombatController : MonoBehaviour
         foreach (Collider2D collider in detectedObjects)
         {
             collider.transform.parent.SendMessage("Damage", attackDetails);
+
+            FindObjectOfType<AudioManager>().Play("SwordSound2");
         }
     }
 

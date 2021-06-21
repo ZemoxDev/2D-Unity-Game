@@ -12,6 +12,8 @@ public class SpikeTrapController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             anim.SetBool("spikeGo", true);
+
+            FindObjectOfType<AudioManager>().Play("SpikeTrapSound");
         }
     }
 

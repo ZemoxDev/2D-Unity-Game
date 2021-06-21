@@ -63,6 +63,7 @@ public class DarkEnemy1 : Entity
         if (isDead)
         {
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("Death");
             stateMachine.ChangeState(deadState);
         }
         else if (isStunned && stateMachine.currentState != stunState)

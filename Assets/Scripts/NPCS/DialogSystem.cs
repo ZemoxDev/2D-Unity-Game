@@ -42,6 +42,7 @@ public class DialogSystem : MonoBehaviour
                 textDisplay.text = "";
                 continueButton.SetActive(false);
                 textBackground.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }

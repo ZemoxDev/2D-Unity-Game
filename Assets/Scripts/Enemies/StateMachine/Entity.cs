@@ -31,7 +31,7 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private Transform groundCheck;
 
-    private float currentHealth;
+    public float currentHealth;
     private float currentStunResistance;
     private float lastDamageTime;
 

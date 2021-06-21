@@ -70,6 +70,7 @@ public class Enemy2 : Entity
         if (isDead)
         {
             stateMachine.ChangeState(deadState);
+            FindObjectOfType<AudioManager>().Play("Death");
             Destroy(gameObject);
         }
         else if (isStunned && stateMachine.currentState != stunState)

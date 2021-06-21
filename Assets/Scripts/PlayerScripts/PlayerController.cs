@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -68,6 +69,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
 
     public CameraShake camShake;
+    private ParticleSystem dust;
+
 
     void Awake()
     {
@@ -81,10 +84,12 @@ public class PlayerController : MonoBehaviour
         if (camShake == null)
             Debug.LogError("There is no CamShake in this Scene");
 
+        dust = GameObject.Find("DustFX").GetComponent<ParticleSystem>();
+
         dashTimeUp = dashTime;
     }
 
-
+    private bool isAirborn;
     void Update()
     {
         CheckInput();
@@ -96,6 +101,19 @@ public class PlayerController : MonoBehaviour
         CheckDash();
         CheckDashUp();
         CheckKnockback();
+
+        if (!isGrounded)
+        {
+            if (!isAirborn) isAirborn = !isAirborn;
+        }
+        else
+        {
+            if (isAirborn)
+            {
+                FindObjectOfType<AudioManager>().Play("LandSound");
+                isAirborn = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -237,6 +255,7 @@ public class PlayerController : MonoBehaviour
             if(Time.time >= (lastDash + dashCooldown))
             {
                 AttemptToDash();
+                CreateDust();
             }
         }
 
@@ -245,6 +264,7 @@ public class PlayerController : MonoBehaviour
             if (Time.time >= (lastDashUp + dashCooldown))
             {
                 AttemptToDashUp();
+                CreateDust();
             }
         }
     }
@@ -254,6 +274,8 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         dashTimeLeft = dashTime;
         lastDash = Time.time;
+
+        FindObjectOfType<AudioManager>().Play("DashSound");
 
         PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXpos = transform.position.x;
@@ -269,6 +291,8 @@ public class PlayerController : MonoBehaviour
         dashUp = true;
         dashTimeLeftUp = dashTimeUp;
         lastDashUp = Time.time;
+
+        FindObjectOfType<AudioManager>().Play("DashUpSound");
 
         PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXpos = transform.position.x;
@@ -340,6 +364,7 @@ public class PlayerController : MonoBehaviour
             if (!isGrounded && isTouchingWall && movementInputDirection != 0 && movementInputDirection != facingDirection)
             {
                 WallJump();
+                FindObjectOfType<AudioManager>().Play("JumpSound");
             }
             else if (isGrounded)
             {
@@ -378,6 +403,8 @@ public class PlayerController : MonoBehaviour
             amountOfJumpsLeft--;
             jumpTimer = 0;
             isAttemptingToJump = false;
+
+            FindObjectOfType<AudioManager>().Play("JumpSound");
         }
     }
 
@@ -439,6 +466,10 @@ public class PlayerController : MonoBehaviour
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
             transform.Rotate(0.0f, 180.0f, 0.0f);
+            if (isGrounded)
+            {
+                CreateDust();
+            }
         }
     }
 
@@ -469,5 +500,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.parent = null;
         }
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }

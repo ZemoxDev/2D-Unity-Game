@@ -9,11 +9,12 @@ public class TotemScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && fireParticle.active == false)
         {
             fireParticle.SetActive(true);
             respawnPoint.position = transform.position;
+
+            FindObjectOfType<AudioManager>().Play("CheckpointSound");
         }
     }
-
 }

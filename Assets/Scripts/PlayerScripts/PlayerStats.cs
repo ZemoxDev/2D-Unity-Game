@@ -44,6 +44,8 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetFloat("damage", PCC.attack1Damage);
         PlayerPrefs.SetFloat("speed", PC.movementSpeed);
         PlayerPrefs.SetFloat("intelligence", PC.dashSpeed);
+
+        FindObjectOfType<AudioManager>().Play("PlayerHurtSound");
     }
 
     public void Die()
@@ -51,6 +53,8 @@ public class PlayerStats : MonoBehaviour
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
         Destroy(gameObject);
         GM.Respawn();
+
+        FindObjectOfType<AudioManager>().Play("Death");
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -61,6 +65,7 @@ public class PlayerStats : MonoBehaviour
             PlayerPrefs.SetFloat("damage", PCC.attack1Damage);
             PlayerPrefs.SetFloat("speed", PC.movementSpeed);
             PlayerPrefs.SetFloat("intelligence", PC.dashSpeed);
+
             Die();
         }
     }

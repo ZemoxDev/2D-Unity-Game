@@ -20,6 +20,9 @@ public class BossStartScript : MonoBehaviour
 
     public Animator tentacleAnim;
 
+    public GameObject upPanel;
+    public GameObject downPanel;
+
 
     private void Update()
     {
@@ -42,6 +45,9 @@ public class BossStartScript : MonoBehaviour
             waveSpawner.SetActive(true);
             tentacleBoss.SetActive(true);
             healthBar.SetActive(true);
+
+            upPanel.SetActive(true);
+            downPanel.SetActive(true);
         }   
     }
 

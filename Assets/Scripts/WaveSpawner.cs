@@ -30,7 +30,6 @@ public class WaveSpawner : MonoBehaviour
 
     public Slider bossSlider;
     private float currentValue = 1f;
-    private float changeSpeed = 0.4f;
 
     void Start()
     {

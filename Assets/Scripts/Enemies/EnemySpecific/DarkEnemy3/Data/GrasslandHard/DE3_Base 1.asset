@@ -21,7 +21,7 @@ MonoBehaviour:
   minAgroDistance: 7
   stunResistance: 3
   stunRecoveryTime: 2
-  shortRangeActionDistance: 0.95
+  shortRangeActionDistance: 1.1
   hitParticle: {fileID: 7995396346791523787, guid: b2d418ce5a6ad5f4699f38be60329a92,
     type: 3}
   attackBloodParticle: {fileID: 6261597489451112121, guid: 827bbab169bc4ae4ba84af117138df54,

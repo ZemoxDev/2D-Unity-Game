@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DE3_AttackData 1
   m_EditorClassIdentifier: 
   attackRadius: 1
-  attackDamage: 42
+  attackDamage: 40
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 2048

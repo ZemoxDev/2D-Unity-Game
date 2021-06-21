@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MissionScript : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class MissionScript : MonoBehaviour
     [SerializeField] GameObject cavesDifficulty;
     [SerializeField] GameObject castleDifficulty;
     [SerializeField] GameObject mountainTopDifficulty;
+
+    [SerializeField] TextMeshProUGUI Strength;
+    [SerializeField] TextMeshProUGUI Intelligence;
+    [SerializeField] TextMeshProUGUI Agility;
+    [SerializeField] TextMeshProUGUI Robustness;
+
 
     private int grassland;
     private int caves;
@@ -58,6 +65,11 @@ public class MissionScript : MonoBehaviour
         cavesDifficulty.SetActive(false);
         castleDifficulty.SetActive(false);
         mountainTopDifficulty.SetActive(false);
+
+        Strength.text = "15 Strength";
+        Intelligence.text = "40 Intelligence";
+        Agility.text = "10 Agility";
+        Robustness.text = "70 Robustness";
     }
 
     public void Caves()
@@ -66,6 +78,11 @@ public class MissionScript : MonoBehaviour
         grasslandDifficulty.SetActive(false);
         castleDifficulty.SetActive(false);
         mountainTopDifficulty.SetActive(false);
+
+        Strength.text = "20 Strength";
+        Intelligence.text = "42 Intelligence";
+        Agility.text = "10 Agility";
+        Robustness.text = "80 Robustness";
     }
 
     public void Castle()
@@ -74,6 +91,11 @@ public class MissionScript : MonoBehaviour
         cavesDifficulty.SetActive(false);
         grasslandDifficulty.SetActive(false);
         mountainTopDifficulty.SetActive(false);
+
+        Strength.text = "35 Strength";
+        Intelligence.text = "44 Intelligence";
+        Agility.text = "10 Agility";
+        Robustness.text = "100 Robustness";
     }
 
     public void MountainTop()
@@ -82,6 +104,11 @@ public class MissionScript : MonoBehaviour
         castleDifficulty.SetActive(false);
         cavesDifficulty.SetActive(false);
         grasslandDifficulty.SetActive(false);
+
+        Strength.text = "45 Strength";
+        Intelligence.text = "47 Intelligence";
+        Agility.text = "12 Agility";
+        Robustness.text = "160 Robustness";
     }
 
     public void GrasslandEasy()
@@ -90,6 +117,11 @@ public class MissionScript : MonoBehaviour
         caves = 0;
         castle = 0;
         mountainTop = 0;
+
+        Strength.text = "15 Strength";
+        Intelligence.text = "40 Intelligence";
+        Agility.text = "10 Agility";
+        Robustness.text = "70 Robustness";
     }
 
     public void GrasslandMedium()
@@ -98,6 +130,11 @@ public class MissionScript : MonoBehaviour
         caves = 0;
         castle = 0;
         mountainTop = 0;
+
+        Strength.text = "20 Strength";
+        Intelligence.text = "44 Intelligence";
+        Agility.text = "11 Agility";
+        Robustness.text = "110 Robustness";
     }
 
     public void GrasslandHard()
@@ -106,6 +143,11 @@ public class MissionScript : MonoBehaviour
         caves = 0;
         castle = 0;
         mountainTop = 0;
+
+        Strength.text = "35 Strength";
+        Intelligence.text = "47 Intelligence";
+        Agility.text = "11 Agility";
+        Robustness.text = "160 Robustness";
     }
 
     public void CavesEasy()
@@ -114,6 +156,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         castle = 0;
         mountainTop = 0;
+
+        Strength.text = "20 Strength";
+        Intelligence.text = "42 Intelligence";
+        Agility.text = "10 Agility";
+        Robustness.text = "80 Robustness";
     }
 
     public void CavesMedium()
@@ -122,6 +169,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         castle = 0;
         mountainTop = 0;
+
+        Strength.text = "30 Strength";
+        Intelligence.text = "46 Intelligence";
+        Agility.text = "11 Agility";
+        Robustness.text = "130 Robustness";
     }
 
     public void CavesHard()
@@ -130,6 +182,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         castle = 0;
         mountainTop = 0;
+
+        Strength.text = "40 Strength";
+        Intelligence.text = "47 Intelligence";
+        Agility.text = "11 Agility";
+        Robustness.text = "190 Robustness";
     }
 
     public void CastleEasy()
@@ -138,6 +195,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         caves = 0;
         mountainTop = 0;
+
+        Strength.text = "35 Strength";
+        Intelligence.text = "44 Intelligence";
+        Agility.text = "10 Agility";
+        Robustness.text = "100 Robustness";
     }
 
     public void CastleMedium()
@@ -146,6 +208,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         caves = 0;
         mountainTop = 0;
+
+        Strength.text = "45 Strength";
+        Intelligence.text = "47 Intelligence";
+        Agility.text = "12 Agility";
+        Robustness.text = "160 Robustness";
     }
 
     public void CastleHard()
@@ -154,6 +221,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         caves = 0;
         mountainTop = 0;
+
+        Strength.text = "55 Strength";
+        Intelligence.text = "50 Intelligence";
+        Agility.text = "12 Agility";
+        Robustness.text = "230 Robustness";
     }
 
     public void MountainTopEasy()
@@ -162,6 +234,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         caves = 0;
         castle = 0;
+
+        Strength.text = "45 Strength";
+        Intelligence.text = "47 Intelligence";
+        Agility.text = "12 Agility";
+        Robustness.text = "160 Robustness";
     }
 
     public void MountainTopMedium()
@@ -170,6 +247,11 @@ public class MissionScript : MonoBehaviour
         grassland = 0;
         caves = 0;
         castle = 0;
+
+        Strength.text = "70 Strength";
+        Intelligence.text = "47 Intelligence";
+        Agility.text = "12 Agility";
+        Robustness.text = "190 Robustness";
     }
 
     public void MountainTopHard()
@@ -179,6 +261,10 @@ public class MissionScript : MonoBehaviour
         caves = 0;
         castle = 0;
 
+        Strength.text = "90 Strength";
+        Intelligence.text = "52 Intelligence";
+        Agility.text = "12 Agility";
+        Robustness.text = "240 Robustness";
     }
 
     public void Play()
@@ -197,6 +283,54 @@ public class MissionScript : MonoBehaviour
         {
             SceneManager.LoadScene("HardGrassland");
         }
+
+        if(caves == 1)
+        {
+
+        }
+
+        if(caves == 2)
+        {
+
+        }
+
+        if(caves == 3)
+        {
+
+        }
+
+        if(castle == 1)
+        {
+            SceneManager.LoadScene("EasyCastle");
+        }
+
+        if (castle == 2)
+        {
+            SceneManager.LoadScene("MediumCastle");
+        }
+
+        if (castle == 3)
+        {
+            SceneManager.LoadScene("HardCastle");
+        }
+
+        if(mountainTop == 1)
+        {
+            SceneManager.LoadScene("EasyMountaintop");
+        }
+
+
+        if (mountainTop == 2)
+        {
+            SceneManager.LoadScene("MediumMountaintop");
+        }
+
+
+        if (mountainTop == 3)
+        {
+            SceneManager.LoadScene("HardMountaintop");
+        }
+
     }
 
 }

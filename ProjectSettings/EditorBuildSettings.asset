@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CityOfLight.unity
     guid: 589ad3ded2f62b64b8a3b6a64b85602e
   - enabled: 1
+    path: Assets/Scenes/Library.unity
+    guid: e6c1d1aa8b368f4459f8c85569b86d7a
+  - enabled: 1
     path: Assets/Scenes/EasyGrassland.unity
     guid: e0e5b4c0b748caf428504ffdb8b71db9
   - enabled: 1
@@ -38,4 +41,58 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HardGrassland.unity
     guid: 200e076c5b799ff4c81b960fccb6dfb3
+  - enabled: 1
+    path: Assets/Scenes/EasyCastle.unity
+    guid: d6b8991032157ff4f862c88a1e7c7f66
+  - enabled: 1
+    path: Assets/Scenes/MediumCastle.unity
+    guid: ae7c94f54f23a9f4583f0755d2e1fc85
+  - enabled: 1
+    path: Assets/Scenes/HardCastle.unity
+    guid: 9012580c014017a48b0569d47a2aba0e
+  - enabled: 1
+    path: Assets/Scenes/EasyMountaintop.unity
+    guid: e2c6ab6c4ea199d499071a583fab6f62
+  - enabled: 1
+    path: Assets/Scenes/MediumMountaintop.unity
+    guid: 95fa8d9a7e7751e4298a9319fdf69208
+  - enabled: 1
+    path: Assets/Scenes/HardMountaintop.unity
+    guid: 53925c9022eedb241a826176ac2b4e23
+  - enabled: 1
+    path: Assets/Scenes/3rd Level.unity
+    guid: 9e2b9625aa5ab134781323ccddd52271
+  - enabled: 1
+    path: Assets/Scenes/3rd Level Boss.unity
+    guid: 737e31bba24585d41af3430f4b67ca0c
+  - enabled: 1
+    path: Assets/Scenes/4th Level.unity
+    guid: f03d27f520b1d7742b7b634db87409fe
+  - enabled: 1
+    path: Assets/Scenes/4th Level 2nd.unity
+    guid: bf6636570680fac4e9a37b4cf4f96121
+  - enabled: 1
+    path: Assets/Scenes/4th Level 3rd.unity
+    guid: 92858ec179db8e5479271ba4099a6820
+  - enabled: 1
+    path: Assets/Scenes/5th Level.unity
+    guid: 13c4e75cd1231f244b4cb9f82324fa70
+  - enabled: 1
+    path: Assets/Scenes/5th Level 2nd.unity
+    guid: ffdbcf4d1f137154da9cc1d4eddf5281
+  - enabled: 1
+    path: Assets/Scenes/5th Level 3rd.unity
+    guid: cc80f76d99d401d488754bb59aa622d4
+  - enabled: 1
+    path: Assets/Scenes/6th Level.unity
+    guid: dabfa80cacdbaab498ded5aeb9b1a5bd
+  - enabled: 1
+    path: Assets/Scenes/6th Level 2nd.unity
+    guid: a447db076c7952542aed0bd8605dbe14
+  - enabled: 1
+    path: Assets/Scenes/6th Level 3rd.unity
+    guid: ee7e6989bbde8e14e90ef8e68da175b7
+  - enabled: 1
+    path: Assets/Scenes/7th Level.unity
+    guid: e72a7c1e3a8c8c94a90ec2ec3992749d
   m_configObjects: {}
